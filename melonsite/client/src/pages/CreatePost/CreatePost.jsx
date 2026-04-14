@@ -1,27 +1,24 @@
 import { useEffect, useState } from "react"
-
-import { AuthService } from "../../services/auth.service"
-import { authStore } from "../../utils/authStore"
+import { useAuth } from "../../contexts/AuthContext"
 
 
 
 
 export const CreatePost = () => {
 
-  const [user, setUser] = useState(null)
+  /* const [user, setUser] = useState(null) */
+  // Sacamos user del contexto. NO hace falta
+  const { user, profile } = useAuth()
+  const { hasUser, setHasUser } = useState(user)
   const [error, setError] = useState(null)
 
   useEffect(() => {
-      const token = authStore.get()  //cojo el token se guardó en el localStorage
-
-      if(!token){  // si no hay token, lanzo error
-        setError('No hay token de autenticación');
-        return;
-      }
-      // llamo a la API a la ruta /profile
-      AuthService.profile(token)
-      .then(setUser)
+    
+    if(!hasUser){
+      profile()
+      .then(setHasUser)
       .catch(err => setError(err.message))
+    }
 
   },[])
 
@@ -30,11 +27,11 @@ export const CreatePost = () => {
     <section className="card">
       <h2>REDACTAR POST</h2>
       {error && <div className="error">{error}</div>}
-      {!error && !user && <p className="muted">Cargando...</p>}
+      {!error && !hasUser && <p className="muted">Cargando...</p>}
 
-      {user && (
+      {hasUser && (
         <ul>
-          {Object.entries(user)
+          {Object.entries(hasUser)
           .filter(([k]) => k !== 'password')
           .map(([k,v]) => <li key={k}><strong>{k}:</strong> {String(v)}</li>)}
         </ul>

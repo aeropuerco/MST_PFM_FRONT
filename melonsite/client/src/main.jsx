@@ -18,7 +18,7 @@ import { AuthProvider, useAuth } from './contexts/AuthContext'
 
 const Layout = () => {
 
-  const {token, logout } = useAuth();
+  const {token, logout, user } = useAuth();
 
   return(
     <div>
@@ -31,12 +31,17 @@ const Layout = () => {
             <>
                 <NavLink to='/login'>Login | </NavLink> 
                 <NavLink to='/register'>Registro | </NavLink>
-                <div>Usuario///ROL</div>
-            </>: 
+                
+            </>
+            : 
               <>
-                <NavLink to='/createpost'>CreatePost | </NavLink>
+                {user?.role === "editor" && (
+                    <NavLink to='/createpost'>CreatePost | </NavLink>
+                )}
+                
 
                 <button onClick={logout}>Logout</button>
+                <div>{user?.name}///{user?.role}</div>
               </>
             }
            
