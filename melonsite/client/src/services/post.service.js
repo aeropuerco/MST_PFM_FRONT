@@ -5,7 +5,8 @@ import { http } from './http'
 
 export const PostService = {
     overview : () => http('/api/post', { method: 'GET'}),
-    fullpost : (id) => http(`/api/post/${id}`, { method: 'GET'})
+    fullpost : (id) => http(`/api/post/${id}`, { method: 'GET'}),
+    create : (payload, token) => http('/api/post/createpost', { method: 'POST', body:payload, token})
 
    // profile : (token) => http('/api/auth/profile', { method: 'GET', token})
 }
