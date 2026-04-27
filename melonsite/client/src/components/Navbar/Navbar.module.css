@@ -1,0 +1,156 @@
+.nav{
+    background-color: rgb(56 65 63);
+    color: white;
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+
+    position: sticky;
+    top:32px;
+    height: 40px;
+
+
+    & h1{
+        font-size: 2em;
+        font-family: Arial, Helvetica, sans-serif;
+        padding:20px 5px;
+    }
+
+}
+
+.links_container{
+display: none;
+gap:5px;
+
+top: 70px;
+background-color: black;
+flex-direction: column;
+right: 40px;
+padding: 20px;
+        &.open{
+            position: fixed;
+            display: flex;
+            
+        }
+}
+
+
+
+.link{
+
+    border-radius:2px;
+    padding:10px 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color:#acff37;
+
+    &:hover{
+        cursor:pointer;
+        background-color:rgba(255,255,255,0.2);
+    }
+}
+
+
+
+.burger{
+    height:100%;
+    width:auto;
+    aspect-ratio: 1;
+    background-color: #c8f788;
+    color: darkgreen;
+    font-size: 2.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: fantasy;
+
+
+        &:hover{
+            cursor: pointer;
+            background-color: #74b816;
+        }
+
+}
+
+.user_card{
+    background-color: #c8f788;
+    flex: 0 0 120px;
+    color: black;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top-left-radius: 20px;
+
+        & strong{
+            font-weight: bold;
+        }
+}
+
+/* * VERSION WIDE: LANDSCAPE/TABLET/PC------------------------------ */
+
+
+@media (min-width:700px){
+    .nav{
+       
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+
+        & h1{
+            padding:20px 5px;
+        }
+    
+    }
+    
+    .links_container{
+        display: flex;
+
+        top: 0px;
+        background-color: transparent;
+
+        flex-direction: row;
+        right: 0px;
+        padding: 0px;
+        position:static;
+    }
+    
+    .link{
+
+    }
+    
+    /* Truquillo para evitar hover en movil */
+
+    .burger{
+        display: none;
+    }
+    
+    .user_card{
+        background-color: #c8f788;
+        flex: 0 0 120px;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        border-top-left-radius: 20px;
+    
+            & strong{
+                font-weight: bold;
+            }
+    }
+
+
+
+
+}
+
+@media (hover:hover){
+    .link:hover{
+        cursor:pointer;
+        background-color:rgba(255,255,255,0.2);
+    }
+}

@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 
-import { createBrowserRouter, RouterProvider, NavLink, Outlet, redirect } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, redirect } from 'react-router-dom'
 import { Home } from './components'
 import { Login, Register, PostEditor, EditorList, Post } from './pages'
 
@@ -10,52 +10,11 @@ import { Login, Register, PostEditor, EditorList, Post } from './pages'
 // import {authStore } from './utils/authStore'
 
 import { storage } from './utils/storage'
-import { AuthProvider, useAuth } from './contexts/AuthContext'
+import { AuthProvider } from './contexts/AuthContext'
+import { Layout } from './components/Layout/Layout'
 
 
 
-// layout general
-
-const Layout = () => {
-
-  const {token, logout, user } = useAuth();
-
-  return(
-    <div>
-      <nav style={{backgroundColor:'beige', padding: '20px'}}>
-        <strong>mel_onsite /// content editor</strong>
-        <div>
-            <NavLink to='/'>Inicio | </NavLink>
-            <NavLink to='/editorlist'>VerEditores | </NavLink>
-            { !token ?  
-            <>
-                <NavLink to='/login'>Login | </NavLink> 
-                <NavLink to='/register'>Registro | </NavLink>
-                
-            </>
-            : 
-              <>
-                {user?.role === "editor" && (
-                    <NavLink to='/createpost'>CreatePost | </NavLink>
-                )}
-                
-
-                <button onClick={logout}>Logout</button>
-                <div>{user?.name}///{user?.role}</div>
-              </>
-            }
-           
-
-
-        </div>
-      </nav>
-      <main>
-          <Outlet />
-      </main>
-      <footer></footer>
-    </div>
-  )
-}
 
 // Si ya no tenemos el token guardado, requerimos autenticación
 // con un redirect, redirigimos al login

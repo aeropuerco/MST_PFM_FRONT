@@ -1,0 +1,16 @@
+:root {
+    /* Colores */
+    --color-primary: #2563eb;
+    --color-bg: #ffffff;
+    --color-text: #1f2937;
+    
+    /* Escala de espaciado */
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    
+    /* Tipografía */
+    --font-main: 'Inter', system-ui, sans-serif;
+    --text-base: 1rem;
+    --text-xl: 1.25rem;
+  }
