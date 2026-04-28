@@ -13,6 +13,11 @@ import { CommentService } from "../../services/comment.service"
 // CUSTOM COMPONENTS
 import { CommentItem } from "../../components/CommentItem/CommentItem"
 
+// UTILS
+import { dateFormat } from '../../utils/dateFormat'
+
+//CSS
+import postStyle from './Post.module.css'
 
 export const Post = () => {
 
@@ -138,20 +143,25 @@ console.log("AUTHORID", postLoaded?.author?._id)
   return (
     <>
 
+      <div className={postStyle.wrap}>
+          <div className={postStyle.post}>
+            <h2 className={postStyle.title}>{postLoaded.title}</h2>
+            <div className={postStyle.author}>{postLoaded?.author?.name}</div>
+            <div className={postStyle.date}>{dateFormat(postLoaded.date)}</div>
+            <hr/>
 
-        <h2>{postLoaded.title}</h2>
-        <div>{postLoaded?.author?.name}</div>
-        <div>{postLoaded.date}</div>
+            {postLoaded?.content_blocks.map((block) => (
+            
 
-        {postLoaded?.content_blocks.map((block) => (
-         
+              < ContentBlock key={block._id} tipo={block.tipo} >
+                {block.valor}
+              </ContentBlock>
 
-          < ContentBlock key={block._id} tipo={block.tipo} >
-            {block.valor}
-          </ContentBlock>
+            ))}
+            
 
-        ))}
-        
+          </div>
+      </div>
       {
         /* MOSTRAMOS BOTON EDITAR SI EL USER LOGEADO ES EL AUTOR DEL POST */
 

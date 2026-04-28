@@ -1,0 +1,21 @@
+.item{
+    border-radius:3px;
+    background-color: gainsboro;
+    margin-bottom:4px;
+    padding:10px 20px;
+
+
+}
+
+.author{
+    font-weight: bold;
+    color:rgb(107 185 137);
+    margin-bottom:7px;
+}
+
+.text{
+    background: #ffffff8a;
+    padding: 20px;
+    border-radius: 7px;
+    color: #494949;
+}

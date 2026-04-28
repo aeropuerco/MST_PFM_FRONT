@@ -1,0 +1,24 @@
+:root {
+
+
+    /* FUENTE GLOBAL */
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+ button{
+    background-color: #8ce593;
+    border-radius: 3px;
+    padding: 5px;
+    margin-top: 20px;
+    font-size: 0.7em;
+    border:1px solid #218a29;
+    &:hover{
+        cursor: pointer;
+        background-color:#baffc0;
+    }
+  }
+
+  hr {
+    border: 1px solid;
+    margin-bottom:30px;
+  }

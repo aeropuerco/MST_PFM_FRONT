@@ -1,3 +1,4 @@
+import { dateFormat } from '../../utils/dateFormat'
 import postitemStyle from './PostItem.module.css'
 
 export const PostItem = ({id, title, autor, exerpt, date}) => {
@@ -8,7 +9,7 @@ export const PostItem = ({id, title, autor, exerpt, date}) => {
                     <div className={postitemStyle.title}>{title}</div>
                     <div className={postitemStyle.autor}>{autor}</div>
                     <div className={postitemStyle.exerpt}>{exerpt}</div>
-                    <div className={postitemStyle.date}>{date}</div>
+                    <div className={postitemStyle.date}>{dateFormat(date)}</div>
                 
         </div>
     )

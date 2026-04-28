@@ -1,5 +1,5 @@
 import { useAuth } from "../../contexts/AuthContext"
-
+import commentitemStyle from './CommentItem.module.css'
 
 
 export const CommentItem = ({ content, id, action, postAuthorId, commentAuthorName, commentAuthorId}) => {
@@ -11,9 +11,9 @@ export const CommentItem = ({ content, id, action, postAuthorId, commentAuthorNa
     const isAdmin = user?.role === 'admin'
 
     return (
-        <div style={{display: 'flex'}}>
-                <div>{commentAuthorName} : </div>
-                <div className='commentItem'>{content}</div>
+        <div className={commentitemStyle.item}>
+                <div className={commentitemStyle.author}>{commentAuthorName}:</div>
+                <div className={commentitemStyle.text}>{content}</div>
                 {(isOwnerOfComment || isOwnerOfPost || isAdmin) && (
                         <button className="adminBtn" onClick={() => action(id)}>Eliminar comentario</button>
                     )}

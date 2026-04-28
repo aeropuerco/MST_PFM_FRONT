@@ -4,15 +4,11 @@
     align-items: center;
 }
 
-.item-container{
-    padding:10px;
-    max-width: 700px;
-}
-
-.item{
+.post{
     
     background-color: lightblue;
     padding:10px;
+    max-width: 700px;
 }
 
 .title{
@@ -41,11 +37,17 @@
     }
 }
 
+.author{
+    font-size: 0.8em;
+    &::before{
+        content: 'por ';
+    }
+}
+
 .date{
-    background-color: rgb(255 255 255 / 30%);
-    margin-top: 20px;
-    padding: 4px 10px;
-    border-radius: 10px;
+
+
+    
     width: fit-content;
     color: #488397;
     font-size: 0.8em;

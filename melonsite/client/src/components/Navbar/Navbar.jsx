@@ -13,10 +13,14 @@ export const Navbar = () => {
       setIsOpen(!isOpen);
     }
 
+    const closeMenu = () => {
+      setIsOpen(false)
+    }
+
   return (
     <nav className={style.nav}>
 
-    <div className={`${style.links_container} ${isOpen ? style.open : ''}`} onClick={toggleMenu} >
+    <div className={`${style.links_container} ${isOpen ? style.open : ''}`} onClick={closeMenu} >
         <NavLink className={style.link} to='/'>Inicio</NavLink>
         <NavLink className={style.link} to='/editorlist'>Editores</NavLink>
         { !token ?  
