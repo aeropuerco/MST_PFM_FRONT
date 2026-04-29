@@ -24,9 +24,9 @@ export const Home = () => {
 
   
   return (
-    <div key='1' className={HomeCSS.wrap}>
+    <div key='1' className='wrap'>
       <div className={HomeCSS.item_container}>
-        <h2>HOME PAGE /// ULTIMOS POSTS</h2>
+       {/*  <h2>HOME PAGE /// ULTIMOS POSTS</h2> */}
 
            <div className={HomeCSS.item}>
         

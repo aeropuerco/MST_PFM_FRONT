@@ -15,7 +15,7 @@ export const CommentItem = ({ content, id, action, postAuthorId, commentAuthorNa
                 <div className={commentitemStyle.author}>{commentAuthorName}:</div>
                 <div className={commentitemStyle.text}>{content}</div>
                 {(isOwnerOfComment || isOwnerOfPost || isAdmin) && (
-                        <button className="adminBtn" onClick={() => action(id)}>Eliminar comentario</button>
+                        <button className="mel_button red" onClick={() => action(id)}>Eliminar comentario</button>
                     )}
                 
         </div>

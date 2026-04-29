@@ -9,6 +9,9 @@ import { PostService } from "../../services/post.service"
 // COMPONENTES CUSTOM
 import { EditableContentBlock } from "../../components/EditableContentBlock/EditableContentBlock"
 
+//CSS
+import postEditorStyle from './PostEditor.module.css'
+
 
 export const PostEditor = () => {
     // ESTADOS DEL FORMULARIO Y ESTADOS DE CARGA Y ERROR (UI)
@@ -155,47 +158,55 @@ export const PostEditor = () => {
     // Devolver el template de la página de register
 
     return (
-        <section className="card">
-            <h2>{id? "EDITAR POST" : "CREAR NUEVO POST"} /// {user.name}</h2>
+        <div className='wrap'>
+            <div className={postEditorStyle.post}>
+                <h2>{id? "EDITAR POST" : "CREAR NUEVO POST"}</h2>
 
-            <form onSubmit={onSubmit}>
-                <div className="title">
-                    <input id="title" name="title" value={postData.title} onChange={onChange} placeholder="Escríbe un título" />
-                </div>
-                <div className="content_blocks" style={{display: 'flex', flexDirection:'column'}}>
-                   
-                   {postData.content_blocks.map((block, index) => (
-                        <EditableContentBlock
-                            key={index}
-                            index={index}
-                            block={block}
-                            onChange={onBlockChange}
-                            onRemove={removeBlock}
-                        />
-                    )
+                <form onSubmit={onSubmit}>
+                    <div className={postEditorStyle.panel}>
+                        <label htmlFor="">Titulo</label>
+                        <input id="title" name="title" value={postData.title} onChange={onChange} placeholder="Escríbe un título" />
+                    </div>
 
-                   )}
-                   
+                    <div className="content_blocks" style={{display: 'flex', flexDirection:'column'}}>
+                    
+                    {postData.content_blocks.map((block, index) => (
+                        <div className={postEditorStyle.panel}>
+                            <EditableContentBlock
+                                    key={index}
+                                    index={index}
+                                    block={block}
+                                    onChange={onBlockChange}
+                                    onRemove={removeBlock}
+                                />
+                            </div>
+                        )
 
-                </div>
+                    )}
+                    
 
-
-                {error && <div role="alert">{error}</div>}
-                {ok && <div>{ok}</div>}
-
-            // BARRA CON TIPOS DE BLOQUES PARA AÑADIR
-                <div className="toolbar">
-                    <button type="button" onClick={()=> addBlock('parrafo')}>+ Parrafo</button>
-                    <button type="button" onClick={()=> addBlock('subtitulo')}>+ Subtitulo</button>
-                    <button type="button" onClick={()=> addBlock('imagen')}>+ Imagen</button>
-                    <button type="button" onClick={()=> addBlock('code')}>+ Codigo</button>
-
-                    <button type="submit" disabled={loading}>
-                        {loading ? (id? 'Guardando cambios...': 'Publicando...') : (id? 'GUARDAR': 'PUBLICAR')}</button>
-                </div>
+                    </div>
 
 
-            </form>
-        </section>
+                    {error && <div role="alert">{error}</div>}
+                    {ok && <div>{ok}</div>}
+
+<hr />
+
+                    <div className={postEditorStyle.toolbar}>
+                        <div>
+                            <button className='mel_button' type="button" onClick={()=> addBlock('parrafo')}>+ Parrafo</button>
+                            <button className='mel_button' type="button" onClick={()=> addBlock('subtitulo')}>+ Subtitulo</button>
+                            <button className='mel_button' type="button" onClick={()=> addBlock('imagen')}>+ Imagen</button>
+                            <button className='mel_button' type="button" onClick={()=> addBlock('code')}>+ Codigo</button>
+                        </div>
+                        <button className='mel_button red'type="submit" disabled={loading}>
+                            {loading ? (id? 'Guardando cambios...': 'Publicando...') : (id? '💾 GUARDAR': 'PUBLICAR')}</button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
     )
 }

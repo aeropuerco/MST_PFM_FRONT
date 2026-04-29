@@ -19,6 +19,7 @@ import { dateFormat } from '../../utils/dateFormat'
 //CSS
 import postStyle from './Post.module.css'
 
+
 export const Post = () => {
 
   const { user, token } = useAuth()
@@ -143,7 +144,7 @@ console.log("AUTHORID", postLoaded?.author?._id)
   return (
     <>
 
-      <div className={postStyle.wrap}>
+      <div className='wrap'>
           <div className={postStyle.post}>
             <h2 className={postStyle.title}>{postLoaded.title}</h2>
             <div className={postStyle.author}>{postLoaded?.author?.name}</div>
@@ -160,20 +161,23 @@ console.log("AUTHORID", postLoaded?.author?._id)
             ))}
             
 
-          </div>
-      </div>
-      {
+
+            {
         /* MOSTRAMOS BOTON EDITAR SI EL USER LOGEADO ES EL AUTOR DEL POST */
 
-       (user?.id === postLoaded?.author?._id) && <Link to={'/post/edit/'+ id}>EDITAR</Link>
+       (user?.id === postLoaded?.author?._id) && 
+          <Link className='mel_button' to={'/post/edit/'+ id}>EDITAR</Link>
       }
 
       {
         /* MOSTRAMOS BOTON ELIMINAR SI EL USER LOGEADO ES EL AUTOR DEL POST, O SI ES UN ADMIN */
         (user?.id === postLoaded?.author?._id || user?.role === 'admin') && (
-        <div>ELIMINAR POST</div>
+           <button className='mel_button'>ELIMINAR POST</button>
       )
       }
+
+
+<hr/>
          
 
       <div>
@@ -183,10 +187,10 @@ console.log("AUTHORID", postLoaded?.author?._id)
      
      { user && 
      
-          <form onSubmit={onCommentSubmit}>
-             <div>COMENTAR</div>
-            <textarea name="comment" onChange={onChange} value={newComment.text} id="" placeholder="Escribe tu comentario..."></textarea>
-            <button type="submit" disabled={loading}>
+          <form className={postStyle.commentBox_container} onSubmit={onCommentSubmit}>
+             
+            <textarea name="comment" className={postStyle.commentBox} onChange={onChange} value={newComment.text} id="" placeholder="Escribe tu comentario..."></textarea>
+            <button className='mel_button' type="submit" disabled={loading}>
                           {loading ? 'Publicando...' : 'PUBLICAR COMENTARIO'}</button>
           </form>
 
@@ -208,7 +212,8 @@ console.log("AUTHORID", postLoaded?.author?._id)
                   key={comment._id}
               />
           ))}
-
+          </div>
+      </div>
       </div>
     </>
   )

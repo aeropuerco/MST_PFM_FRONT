@@ -1,6 +1,7 @@
+//CSS
+import EditableContentBlockStyle from './EditableContentBlock.module.css'
 
 export const EditableContentBlock = ({ block, index, onChange, onRemove}) => {
-    console.log("HOLA");
 
     const blockBody = () => {
 
@@ -9,6 +10,7 @@ export const EditableContentBlock = ({ block, index, onChange, onRemove}) => {
         case 'parrafo':
             return (
                 <textarea 
+                    className={EditableContentBlockStyle.textBox}
                     value={block.valor} 
                     placeholder="Escribe un parrafo" 
                     onChange={(e) => onChange(index, e.target.value)} />
@@ -57,15 +59,15 @@ export const EditableContentBlock = ({ block, index, onChange, onRemove}) => {
 
     return (
 
-        <div className="block">
-            <div className="block-header">
-                <span>Bloque: <strong>{block.tipo}</strong></span>
-                <button type="button" onClick={() => onRemove(index)}>Eliminar</button>
+        <>
+            <div className={EditableContentBlockStyle.block_header}>
+                    <label>Bloque: <strong>{block.tipo}</strong></label>
+                    <button className='mel_button' type="button" onClick={() => onRemove(index)}>Eliminar</button>
             </div>
             <div className="block-body">
                 {blockBody()}
             </div>
-        </div>
+        </>
     )
 
 }
