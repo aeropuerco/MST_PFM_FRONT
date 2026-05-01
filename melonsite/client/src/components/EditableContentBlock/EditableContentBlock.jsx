@@ -20,6 +20,7 @@ export const EditableContentBlock = ({ block, index, onChange, onRemove}) => {
         case 'imagen':
             return (
                 <input type="text"
+                className={EditableContentBlockStyle.imgInput}
                     value={block.valor} 
                     placeholder="URL de la imagen,,,"
                     onChange={(e) => onChange(index, e.target.value)}/>
@@ -28,6 +29,7 @@ export const EditableContentBlock = ({ block, index, onChange, onRemove}) => {
         case 'subtitulo':
             return (
                 <input type="text"
+                className={EditableContentBlockStyle.subtitleinput}
                 value={block.valor} 
                 placeholder="Añade un Subtitulo"
                 onChange={(e) => onChange(index, e.target.value)}/>
@@ -36,7 +38,7 @@ export const EditableContentBlock = ({ block, index, onChange, onRemove}) => {
         case 'code':
             return (
                 <textarea
-                className="code" 
+                className={EditableContentBlockStyle.codeBox}
                 value={block.valor} 
                 placeholder="Escribe un fragmento de código" 
                 onChange={(e) => onChange(index, e.target.value)} />

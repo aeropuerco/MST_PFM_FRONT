@@ -10,7 +10,13 @@ export const Layout = () => {
       < Header />
        < Navbar />
         <main>
-            <Outlet />
+          <div className='wrap'>
+            <section className="page">
+              
+              <Outlet />
+
+            </section>
+          </div>
         </main>
         <footer></footer>
       </div>

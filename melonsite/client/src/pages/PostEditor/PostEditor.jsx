@@ -158,10 +158,10 @@ export const PostEditor = () => {
     // Devolver el template de la página de register
 
     return (
-        <div className='wrap'>
-            <div className={postEditorStyle.post}>
-                <h2>{id? "EDITAR POST" : "CREAR NUEVO POST"}</h2>
 
+            <div className={postEditorStyle.post}>
+                <label>{id? "EDITAR POST" : "CREAR NUEVO POST"}</label>
+        <hr />
                 <form onSubmit={onSubmit}>
                     <div className={postEditorStyle.panel}>
                         <label htmlFor="">Titulo</label>
@@ -207,6 +207,6 @@ export const PostEditor = () => {
 
                 </form>
             </div>
-        </div>
+
     )
 }

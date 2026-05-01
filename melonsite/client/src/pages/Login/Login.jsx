@@ -53,11 +53,11 @@ export const Login = () => {
 
   return (
     <section className="card">
-      <h2>INICIAR SESIÓN CON CONTEXTO</h2>
+      <label>INICIAR SESIÓN</label>
       <form className="space-y" onSubmit={onSubmit}>
-
+<hr />
         <div className="field">
-          <label>Name</label>
+          <label>Nombre</label>
           <input name="name" value={form.name} onChange={onChange} />
         </div>
 
@@ -70,7 +70,7 @@ export const Login = () => {
         {error && <div className="error">{error}</div>}
 
         <div className="row" style={{justifyContent:'flex-end'}}>
-          <button className="btn" disabled={loading}>{loading?'Iniciando sesión ...':'Iniciar sesión'}</button>
+          <button type="submit" className="mel_button" disabled={loading}>{loading?'Iniciando sesión ...':'Iniciar sesión'}</button>
         </div>
 
       </form>

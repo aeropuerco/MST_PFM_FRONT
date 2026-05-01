@@ -1,5 +1,5 @@
 //CSS
-import postStyle from './ContentBlock.module.css'
+import contentBlockStyle from './ContentBlock.module.css'
 
 
 export const ContentBlock = ({ tipo, children}) => {
@@ -9,7 +9,7 @@ export const ContentBlock = ({ tipo, children}) => {
 
         case 'parrafo':
             return (
-                <p className={postStyle.parrafo}>
+                <p className={contentBlockStyle.parrafo}>
                     {children}
                 </p>
              )
@@ -17,17 +17,17 @@ export const ContentBlock = ({ tipo, children}) => {
 
         case 'imagen':
             return (
-                <div className={postStyle.imagen} background-image={children}></div>
+                <div className={contentBlockStyle.imagen} background-image={children}></div>
              )
 
         case 'subtitulo':
             return (
-                 <h2 className={postStyle.subtitulo}>{children}</h2>
+                 <h2 className={contentBlockStyle.subtitulo}>{children}</h2>
             )
 
-        case 'code':
+        case 'codigo':
             return (
-                <div className={postStyle.code}>{children}</div>
+                <div className={contentBlockStyle.code}>{children}</div>
            )
         
 

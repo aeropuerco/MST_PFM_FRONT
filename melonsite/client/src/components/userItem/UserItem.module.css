@@ -1,0 +1,15 @@
+.item{
+    
+    background-color: #cbffcb;
+    padding: 10px 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.user{
+    color: #373232;
+}

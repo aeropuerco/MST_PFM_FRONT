@@ -67,7 +67,8 @@ export const Register = () => {
 
     return (
         <section className="card">
-            <h2>Register</h2>
+            <label>REGISTRO DE VISITANTE</label>
+            <hr />
 
             <form onSubmit={onSubmit}>
                 <div style={{display: 'flex', flexDirection:'column'}}>
@@ -78,9 +79,10 @@ export const Register = () => {
                     {error && <div role="alert">{error}</div>}
                     {ok && <div>{ok}</div>}
 
-                    <button type="button" onClick={()=>setForm({name:'', email:'', password:''})}>Limpiar</button>
-                    <button type="submit" disabled={loading}>{loading ? 'Creando...' : 'Registrarme'}</button>
+                    
                 </div>
+                <button className="mel_button" type="button" onClick={()=>setForm({name:'', email:'', password:''})}>Limpiar</button>
+                    <button className="mel_button" type="submit" disabled={loading}>{loading ? 'Creando...' : 'Registrarme'}</button>
             </form>
         </section>
     )

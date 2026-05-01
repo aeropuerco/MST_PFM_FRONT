@@ -144,8 +144,6 @@ console.log("AUTHORID", postLoaded?.author?._id)
   return (
     <>
 
-      <div className='wrap'>
-          <div className={postStyle.post}>
             <h2 className={postStyle.title}>{postLoaded.title}</h2>
             <div className={postStyle.author}>{postLoaded?.author?.name}</div>
             <div className={postStyle.date}>{dateFormat(postLoaded.date)}</div>
@@ -213,8 +211,8 @@ console.log("AUTHORID", postLoaded?.author?._id)
               />
           ))}
           </div>
-      </div>
-      </div>
+
+
     </>
   )
 }

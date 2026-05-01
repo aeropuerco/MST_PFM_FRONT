@@ -6,6 +6,8 @@ import { UserService } from "../../services/user.service"
 //Componentes mios
 import { UserItem } from "../../components/UserItem/UserItem"
 
+//CSS
+import EditorListStyle from './EditorList.module.css'
 
 export const EditorList = () => {
   
@@ -128,22 +130,28 @@ export const EditorList = () => {
     <>
         {error && <p style={{color: 'red'}}>{error}</p>}
 
-        <h2>EDITORS LIST //</h2>
-
+        <label>EDITORS LIST</label>
+        
+            <hr />
         {resEditorList.map((editor) => (
-          < UserItem name={editor.name} id={editor._id} action={deleteEditor} key={editor._id} />
+          < UserItem
+          name={editor.name}
+          id={editor._id}
+          action={deleteEditor}
+          key={editor._id} />
 
         ))}
 
         {user?.role === "admin" && (
-          <form onSubmit={onSubmit}>  
-            <div style={{display: 'flex', flexDirection:'column'}}>
+          <div  className={EditorListStyle.registerEditor}>
+              <label htmlFor="">Alta de Nuevo Editor</label>
+              <form onSubmit={onSubmit}>  
                   <input id="name" name="name" value={form.name} onChange={onChange} autoComplete="name" placeholder="nombre"/>
                   <input id="email" name="email" value={form.email} onChange={onChange} autoComplete="email" placeholder="email"/>
                   <input id="password" name="password" type="password" value={form.password} onChange={onChange} autoComplete="new-password" placeholder="contraseña"/>
-                <button type="submit" disabled={loading}>{loading ? 'Creando...' : 'Alta Nuevo Editor'}</button>
-            </div>
-          </form>
+                <button type="submit" className='mel_button red' disabled={loading}>{loading ? 'Creando...' : 'Crear cuenta'}</button>
+            </form>
+          </div>
        )}
 
 
